@@ -24,26 +24,8 @@ function updateGameArea() {
             myObstacles[i].x += -1;
             myObstacles[i].update();
         }
-       // myObstacle.x += -1;
         myGamePiece.speedX = 0;
         myGamePiece.speedY = 0;
-        if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -1; }
-        if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
-        if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -1; }
-        if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
-        
-        /*// for touch control
-        if (myGameArea.touchX && myGameArea.touchY) {
-            myGamePiece.x = myGameArea.x;
-            myGamePiece.y = myGameArea.y; 
-        }*/
-        /*
-        //mouse controller
-        if (myGameArea.x && myGameArea.y) {
-            myGamePiece.x = myGameArea.x;
-            myGamePiece.y = myGameArea.y; 
-        }
-        */
         score=myObstacles.length/2-4;
         if(score<0){
             score=0;
