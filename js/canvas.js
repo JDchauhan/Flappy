@@ -17,12 +17,12 @@ var myGameArea = {
         window.addEventListener('keydown', function (e) {
             myGameArea.keys = (myGameArea.keys || []);
             myGameArea.keys[e.keyCode] = true;
-            myGamePiece.image.src = "gamePiece/bird3.png";
+            myGamePiece.image.src = "images/bird3.png";
             accelerate(-0.25);
         })
         window.addEventListener('keyup', function (e) {
             myGameArea.keys[e.keyCode] = false; 
-            myGamePiece.image.src = "gamePiece/bird2.png";
+            myGamePiece.image.src = "images/bird2.png";
             accelerate(0.05);
         })
    },
@@ -32,15 +32,18 @@ var myGameArea = {
     stop : function() {
         clearInterval(this.interval);
         mySound.stop();
-        mySound = new sound("sounds/die.mp3");
+        mySound = new sound("death","sounds/die.mp3");
         mySound.play();
     }
 }
 
-function sound(src) {
+function sound(val,src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
+    if(val=="background"){
+        this.sound.setAttribute("loop", "loop");
+    }
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
