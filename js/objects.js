@@ -1,12 +1,14 @@
 var myGamePiece;
 var myObstacles= [];
-var myScore;
 var mySound;
+var myBackground;
+var myScore;
+
 function startGame() {
-    
-    myGamePiece = new component(30, 30, "gamePiece/bird1.png", 10, 120,"image");
+    myBackground = new component(1650, 270, "images/background.jpg", 0, 0, "background");
+    myGamePiece = new component(30, 30, "images/bird1.png", 10, 120,"image");
  //   myObstacle  = new component(10, 200, "green", 300, 120);
-    mySound = new sound("sounds/background.mp3");
+    mySound = new sound("background","sounds/background.mp3");
     myScore = new component("30px", "Consolas", "black", 280, 40, "text"); 
     myGameArea.start();
     mySound.play();
@@ -14,7 +16,7 @@ function startGame() {
 
 function component(width, height, color, x, y,type) {
     this.type = type;
-    if (type == "image") {
+    if (type == "image" || type == "background") {
         this.image = new Image();
         this.image.src = color;
     }
@@ -34,6 +36,8 @@ function component(width, height, color, x, y,type) {
             ctx.fillText(this.text, this.x, this.y);
         } else if(type == "image") {
             ctx.drawImage(this.image, this.x, this.y,this.width, this.height);
+        } else if (type == "background") {
+             ctx.drawImage(this.image, this.x, this.y,this.width, this.height);
         } else {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
