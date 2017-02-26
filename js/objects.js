@@ -1,16 +1,23 @@
 var myGamePiece;
 var myObstacles= [];
 var myScore;
+var mySound;
 function startGame() {
     
-    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece = new component(30, 30, "gamePiece/bird1.png", 10, 120,"image");
  //   myObstacle  = new component(10, 200, "green", 300, 120);
+    mySound = new sound("sounds/background.mp3");
     myScore = new component("30px", "Consolas", "black", 280, 40, "text"); 
     myGameArea.start();
+    mySound.play();
 }
 
 function component(width, height, color, x, y,type) {
     this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
     this.width = width;
     this.height = height;
     this.speedX = 0;
@@ -25,6 +32,8 @@ function component(width, height, color, x, y,type) {
             ctx.font = this.width + " " + this.height;
             ctx.fillStyle = color;
             ctx.fillText(this.text, this.x, this.y);
+        } else if(type == "image") {
+            ctx.drawImage(this.image, this.x, this.y,this.width, this.height);
         } else {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -42,6 +51,7 @@ function component(width, height, color, x, y,type) {
         if(this.hitTop()){
             this.gravitySpeed=0;
             this.gravity = 0;
+            this.y = 0;
             accelerate(0.05);
         }
     } 
@@ -71,10 +81,10 @@ function component(width, height, color, x, y,type) {
         var othertop = otherobj.y;
         var otherbottom = otherobj.y + (otherobj.height);
         var crash = true;
-        if ((mybottom < othertop + 1) ||
-               (mytop > otherbottom + 1) ||
-               (myright < otherleft + 1) ||
-               (myleft > otherright + 1)) {
+        if ((mybottom < othertop + 2) ||
+               (mytop > otherbottom - 2) ||
+               (myright < otherleft + 4) ||
+               (myleft > otherright - 4)) {
            crash = false;
         }
         return crash;
