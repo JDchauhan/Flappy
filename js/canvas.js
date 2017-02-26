@@ -17,28 +17,38 @@ var myGameArea = {
         window.addEventListener('keydown', function (e) {
             myGameArea.keys = (myGameArea.keys || []);
             myGameArea.keys[e.keyCode] = true;
+            myGamePiece.image.src = "gamePiece/bird3.png";
             accelerate(-0.25);
         })
         window.addEventListener('keyup', function (e) {
             myGameArea.keys[e.keyCode] = false; 
+            myGamePiece.image.src = "gamePiece/bird2.png";
             accelerate(0.05);
         })
-  /*
-        window.addEventListener('mousemove', function (e) {
-            myGameArea.x = e.pageX;
-            myGameArea.y = e.pageY;
-        })
-    
-        window.addEventListener('touchmove', function (e) {
-            myGameArea.x = e.touches[0].screenX;
-            myGameArea.y = e.touches[0].screenY;
-        })
-   */
    },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
     stop : function() {
         clearInterval(this.interval);
+        mySound.stop();
+        mySound = new sound("sounds/die.mp3");
+        mySound.play();
     }
 }
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
+
