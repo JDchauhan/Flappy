@@ -8,6 +8,15 @@ function updateGameArea() {
             } 
         }
         myGameArea.clear();
+        if (myGameArea.x && myGameArea.y) {
+            myGamePiece.image.src = "images/bird3.png";
+            accelerate(-1.5); 
+            myGameArea.x=false;
+        } else if(myGameArea.y){
+            myGamePiece.image.src = "images/bird2.png";
+            accelerate(0.05);
+            myGameArea.y=false;
+        }
         myBackground.speedX = -1; 
         myBackground.newPos(); 
         myBackground.update();
