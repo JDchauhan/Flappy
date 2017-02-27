@@ -47,6 +47,12 @@ function component(width, height, color, x, y,type) {
         this.gravitySpeed += this.gravity;
         this.x += this.speedX;
         this.y += this.speedY + this.gravitySpeed;
+        if (this.type == "background") {
+           // console.log(this.x);
+            if (this.x == 480-(this.width)) {
+                this.x = 0;
+            }
+        }
         if(this.hitBottom()){
             this.gravitySpeed=0;
             this.gravity = 0;
