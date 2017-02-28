@@ -1,0 +1,26 @@
+
+<script type='text/javascript'>
+    // add all of your image paths to this array
+    var images = [
+        '/images/bird1.png',
+        '/images/bird2.png',
+        '/images/bird3.png',
+        '/images/background.jpg',
+        '/sounds/background.mp3',
+        '/sounds/die.mp3'
+    ];
+
+    for(var i in images) {
+        var img = images[i];
+        var e = document.createElement('img');
+        // this will trigger your browser loading the image (and caching it)
+        e.src = img;
+    }
+
+    // once we get here, we are pretty much done, so redirect to the actual page
+    window.location = '../Flappy';
+</script>
+<body>
+    <h1>Loading....</h1>
+    <img src="loading.gif"/>
+</body>
