@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/objects.js"></script>
+    <script type="text/javascript" src="js/update.js"></script>
 <style>
 canvas {
     border: 1px solid #d3d3d3;
@@ -12,32 +15,10 @@ canvas {
     min-height: 100%;
 }
 </style>
-<script type="text/javascript">
-
-var preload = new Array();
-
-
-preload[0] = "/images/background.jpg";
-preload[1] = "/images/bird1.png";
-preload[2] = "/images/bird2.png";
-preload[3] = "/images/bird3.png";
-preload[4] = "/images/imageE.jpg";
-
-var loadedimages = new Array();
-for(var i=0; i<preload.length; i++) {
-loadedimages[i] = new Image();
-loadedimages[i].src = preload[i];
-}
-</script>
-
-
-</script>
 </head>
 <body onload="startGame()">
 
-    <script type="text/javascript" src="js/canvas.js"></script>
-    <script type="text/javascript" src="js/objects.js"></script>
-    <script type="text/javascript" src="js/update.js"></script>
+    
 
 </body>
 </html>
