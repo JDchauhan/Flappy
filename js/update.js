@@ -1,4 +1,4 @@
-
+level=3;
 function updateGameArea() {
       var x, y;
         for (i = 0; i < myObstacles.length; i += 1) {
@@ -17,10 +17,10 @@ function updateGameArea() {
             accelerate(0.05);
             myGameArea.y=false;
         }
-        myBackground.speedX = -1; 
+        myBackground.speedX = -level; //change
         myBackground.newPos(); 
         myBackground.update();
-        myGameArea.frameNo += 1;
+        myGameArea.frameNo += 1*level;
         if (myGameArea.frameNo == 1 || everyinterval(150)) {
             x = myGameArea.canvas.width;
             minHeight = 20;
@@ -33,7 +33,7 @@ function updateGameArea() {
             myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
         }
         for (i = 0; i < myObstacles.length; i += 1) {
-            myObstacles[i].x += -1;
+            myObstacles[i].x += -level;
             myObstacles[i].update();
         }
         myGamePiece.speedX = 0;
