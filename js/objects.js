@@ -7,6 +7,8 @@ var myScore;
 function startGame() {
     myBackground = new component(1650, 270, "images/background.jpg", 0, 0, "background");
     myGamePiece = new component(30, 30, "images/bird1.png", 10, 120,"image");
+    
+    myGamePiece.gravity = 0.05;
  //   myObstacle  = new component(10, 200, "green", 300, 120);
     mySound = new sound("background","sounds/background.mp3");
     myScore = new component("30px", "Consolas", "black", 280, 40, "text"); 
@@ -109,5 +111,5 @@ function everyinterval(n) {
 function accelerate(n) {
     if (!myGameArea.interval) {myGameArea.interval = setInterval(updateGameArea, 20);}
 
-    myGamePiece.gravity = n;
+    myGamePiece.gravity = n*(level);
 }
