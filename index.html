@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<script type="text/javascript" src="js/canvas.js"></script>
-<script type="text/javascript" src="js/objects.js"></script>
-<script type="text/javascript" src="js/update.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/objects.js"></script>
+    <script type="text/javascript" src="js/update.js"></script>
 <style>
 canvas {
     border: 1px solid #d3d3d3;
@@ -15,23 +15,7 @@ canvas {
     min-height: 100%;
 }
 </style>
-<script type="text/javascript">
-var images = [
-        '/images/bird1.png',
-        '/images/bird2.png',
-        '/images/bird3.png',
-        '/images/background.jpg',
-        '/sounds/background.mp3',
-        '/sounds/die.mp3'
-    ];
 
-    for(var i in images) {
-        var img = images[i];
-        var e = document.createElement('img');
-        // this will trigger your browser loading the image (and caching it)
-        e.src = img;
-    }
-</script>
 </head>
 <body onload="startGame()">
 
