@@ -1,5 +1,5 @@
-height= window.innerHeight;
-width= window.innerWidth;
+height= 270;
+width= 480;
 function startGame() {
     myGameArea.start();
 }
