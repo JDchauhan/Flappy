@@ -1,5 +1,6 @@
 height= 270;
 width= 480;
+
 function startGame() {
     myGameArea.start();
 }
@@ -51,7 +52,7 @@ function sound(val,src) {
     }
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
+    //document.body.appendChild(this.sound);
     this.play = function(){
         this.sound.play();
     }
