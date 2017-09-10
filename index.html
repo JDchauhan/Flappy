@@ -2,16 +2,26 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="prefetch" href="sounds/background.mp3">
+    <link rel="prefetch" href="sounds/die.mp3">
+    <link rel="prefetch" href="images/bird2.png">
+    <link rel="prefetch" href="images/bird3.png">
+    <link rel="prefetch" href="images/background.jpg">
+    
+    
     <script type="text/javascript" src="js/canvas.js"></script>
     <script type="text/javascript" src="js/objects.js"></script>
     <script type="text/javascript" src="js/update.js"></script>
 <style>
 canvas {
     border: 1px solid #d3d3d3;
-    background-color: #f1f1f1;width: 100%;
-    height: window.innerHeight;
-    width: window.innerWidth;
-    display: block;
+    background-color: #f1f1f1;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    position: fixed;
 }
 </style>
 <script type="text/javascript">mySound = new sound("background","sounds/background.mp3");
