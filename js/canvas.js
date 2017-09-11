@@ -14,20 +14,46 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0; 
         this.interval = setInterval(updateGameArea, 20);
+
         window.addEventListener('mousemove', function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
             myGamePiece.image.src = "images/bird3.png";
           //  accelerate(-0.25);
         })
+        
+        window.addEventListener('touchstart', function (e) {
+  //          myGameArea.keys = (myGameArea.keys || []);
+ 
+            myGamePiece.image.src = "images/bird3.png";
+        //  if(e.touches.length>1) alert(e.touches.length);
+            //dual finger tap work the good
+            accelerate(-0.25/4);
+        //  accelerate(-0.25);
+        })
+
+/*
+        window.addEventListener('touchmove', function (e) {
+  //          myGameArea.keys = (myGameArea.keys || []);
+            myGamePiece.image.src = "images/bird3.png";
+          //  if(e.touches.length>1) alert(e.touches.length);
+            //dual finger tap work the good
+            accelerate(-0.25);
+          //  accelerate(-0.25);
+        })
+  */      window.addEventListener('touchend', function (e) {
+                myGamePiece.image.src = "images/bird2.png";
+                accelerate(0.05);//  accelerate(-0.25);
+            
+        })
         window.addEventListener('keydown', function (e) {
-            myGameArea.keys = (myGameArea.keys || []);
-            myGameArea.keys[e.keyCode] = true;
+   //         myGameArea.keys = (myGameArea.keys || []);
+            //myGameArea.keys[e.keyCode] = true;
             myGamePiece.image.src = "images/bird3.png";
             accelerate(-0.25);
         })
         window.addEventListener('keyup', function (e) {
-            myGameArea.keys[e.keyCode] = false; 
+          //  myGameArea.keys[e.keyCode] = false; 
             myGamePiece.image.src = "images/bird2.png";
             accelerate(0.05);
         })
